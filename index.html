@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Johnson and Dunn Construction Consultants - Professional Construction Consulting Services">
+    <title>Johnson and Dunn Construction Consultants</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer src="site-script.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar" aria-label="Main navigation">
+            <div class="nav-container">
+                <a href="#home" class="individual-nav-bar" data-target="home" aria-current="page">Home</a>
+                <a href="#about-us" class="individual-nav-bar" data-target="about-us">About Us</a>
+                <a href="#services" class="individual-nav-bar" data-target="services">Services</a>
+                <a href="#contact" class="individual-nav-bar" data-target="contact-us">Contact Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!--Home Page & Nav Bar-->
+        <section id="home" class="home-section">
+            <picture>
+                <!-- Smaller image for mobile -->
+                <source media="(max-width: 480px)" srcset="Stock Imgs/pexels-ivan-samkov-4491918-small.jpg">
+                <!-- Medium image for tablets -->
+                <source media="(max-width: 768px)" srcset="Stock Imgs/pexels-ivan-samkov-4491918-medium.jpg">
+                <!-- Default image fallback -->
+                <img src="./Stock Imgs/pexels-ivan-samkov-4491918.jpg" alt="" style="display:none">
+            </picture>
+            
+            <div class="home-header">
+                <h1>Johnson and Dunn Construction Consultants</h1>
+                <p class="subtitle">Possible Slogan?</p>
+            </div>
+        </section>
+
+        <!--About Us Section-->
+        <section id="about-us" class="default-section">
+            <div class="content-block">
+                <div class="text-content">
+                    <h2 class="section-header">About Us</h2>
+                    <p class="about-us-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed tellus bibendum, sollicitudin felis dictum, luctus turpis. Mauris eros enim, mollis sed massa ut, aliquet commodo elit.</p>
+                </div>
+                <figure class="section-image-wrapper">
+                    <img src="./Stock Imgs/pexels-reneterp-3990359.jpg" alt="placeholder" class="section-image" loading="lazy">
+                </figure>
+            </div>
+            
+            <div class="content-block">
+                <figure class="section-image-wrapper">
+                    <img src="./Stock Imgs/pexels-ajaybhargavguduru-977526.jpg" alt="placeholder" class="section-image" loading="lazy">
+                </figure>
+                <div class="text-content">
+                    <h2 class="section-header">Mission Statement</h2>
+                    <p class="mission-statement-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed tellus bibendum, sollicitudin felis dictum, luctus turpis.</p>
+                </div>
+            </div>
+        </section>
+
+        <!--Services Section-->
+        <section id="services" class="default-section">
+            <h2 class="section-header centered">Our Services</h2>
+            <div class="hero-image-container">
+                <img src="placeholder-image.jpg" 
+                    alt="placeholder" 
+                    class="home-image"
+                    loading="lazy">
+            </div>
+            <div class="service-carousel" id="carousel">
+                <div class="carousel-viewport" id="carouselViewport">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="service-item" data-index="0">
+                            <p tabindex="2">test1</p>
+                            <div class="icon-box">
+                                <div class="icon"><img src="Stock Imgs/construction-icon.png" alt="icon of a hammer and wrench crossing" loading="lazy" tabindex="1"></div>
+                            </div>     
+                        </div>
+                        <div class="service-item" data-index="1">
+                            <p tabindex="4">test2</p>
+                            <div class="icon-box">
+                                <div class="icon"><img src="Stock Imgs/consult-icon.png" alt="icon of a support representative" loading="lazy" tabindex="3"></div>
+                            </div>
+                        </div>
+                        <div class="service-item" data-index="2">
+                        <p tabindex="6">test3</p>
+                            <div class="icon-box">
+                                <div class="icon"><img src="Stock Imgs/engineering-icon.png" alt="Icon of an engineer wearing a hardhat with gears next to him" loading="lazy" tabindex="5"></div>
+                            </div>
+                        </div>
+                        <div class="service-item" data-index="3">
+                        <p tabindex="8">test4</p>
+                            <div class="icon-box">
+                                <div class="icon"><img src="Stock Imgs/water-damage.png" alt="Icon a house with a leaky roof" loading="lazy" tabindex="7"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button carousel-button-left" id="prevButton">❮</button>
+                <button class="carousel-button carousel-button-right" id="nextButton">❯</button>
+        </section>
+
+        <!--Contact Us Section-->
+        <section id="contact-us" class="default-section">
+            <h2 class="section-header">How Can We Help?</h2>
+            <form action="https://formsubmit.co/test" method="POST">
+                <input type="hidden" name="_subject" value="New Email!">
+                <br>
+                <input type="f_name" name="first_name" placeholder="First Name"required>
+                <br>
+                <input type="l_name" name="last_name" placeholder="Last Name" required>
+                <br>       
+                <input type="email" name="email" placeholder="Email Address" required>
+                <br>
+                <input type="text" name="message" placeholder="Write your message here." required>
+                <br>
+                <input type="checkbox" id="agreement" name="agreement" required>
+                <label for="agreement">Do you agree to the terms and conditions</label>
+                <br>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>LET'S CONNECT</h3>
+                <div class="social-icons">
+                    <a href="https://x.com/johnsondunnllc" rel="noopener noreferrer" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/johnsondunnllc/" rel="noopener noreferrer" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>OUR LOCATION</h3>
+                <p>1878 N Vermont Ave</p>
+                <p>Sanford, NC 90028</p>
+                <p>(919) 285-8326</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>OUR POLICIES</h3>
+                <ul class="footer-links">
+                    <li>Private Policy</li>
+                    <li>Accessibility Statement</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>QUICKLINKS</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Johnson and Dunn Construction Consultants. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
