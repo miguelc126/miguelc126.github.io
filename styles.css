@@ -271,7 +271,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.5s ease;
+    transition: all 0.8s ease;
     top: 50px;
 }
 
@@ -321,13 +321,13 @@ img {
 }
     /*position far items on top of left and right, for simple fade in when brought into view*/
 .service-item.far-left {
-    transform: translateX(calc(-1 * var(--service-item-width) - var(--service-item-spacing)));
+    transform: translateX(calc((-1 * var(--service-item-width) - var(--service-item-spacing)) * 2));
     opacity: 0;
     z-index: 0;
 }
 
 .service-item.far-right {
-    transform: translateX(var(--service-item-spacing));
+    transform: translateX(calc(var(--service-item-spacing) * 3.5));
     opacity: 0;
     z-index: 0;
 }
