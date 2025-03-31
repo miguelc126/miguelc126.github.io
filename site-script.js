@@ -74,8 +74,8 @@ function initServiceCarousel() {
     const items = Array.from(document.querySelectorAll('.service-item'));
     const prevButton = document.getElementById('prevButton');
     const nextButton = document.getElementById('nextButton');
-    const carousel = document.getElementById('carousel')
-    const carouselTrack = document.getElementById('carouselTrack');
+    const carousel = document.getElementById('carousel');
+    const viewport = document.getElementById('carouselViewport');
     const totalItems = items.length;
 
     // Current active index (center)
@@ -174,10 +174,10 @@ function initServiceCarousel() {
         let touchStartX = 0;
         let touchEndX = 0;
     
-        carousel.addEventListener('touchstart', e => {
+        viewport.addEventListener('touchstart', e => {
             touchStartX = e.changedTouches[0].screenX;
         }, { passive: true});
-        carousel.addEventListener('touchend', e => {
+        viewport.addEventListener('touchend', e => {
             touchEndX = e.changedTouches[0].screenX;
             handleSwipe();
         }, { passive: true });
