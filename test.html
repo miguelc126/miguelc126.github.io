@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Carousel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    
+    .carousel-container {
+  position: relative;
+  width: 100%; /* Make the width 100% of its parent */
+  max-width: 900px; /* Limit the max width */
+  height: 320px;
+  overflow: hidden;
+  border: 4px solid black;
+  padding: 0 20px; /* Optional: Add padding to ensure items don't touch edges */
+}
+
+    
+    .carousel-viewport {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: translateY(35px);
+    }
+    
+    .carousel-track {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      transition: transform 0.5s ease-out;
+    }
+    
+    .carousel-item {
+      position: absolute;
+      width: 240px;
+      height: 220px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: #333;
+      transition: all 0.5s ease-out;
+    }
+    
+    .carousel-item.left {
+      transform: translateX(-380px) translateY(20px);
+      filter: blur(2px);
+      z-index: 1;
+    }
+    
+    .carousel-item.center {
+      transform: translateX(-50%) translateY(-20px);
+      height: 260px;
+      width: 260px;
+      filter: blur(0);
+      z-index: 2;
+    }
+    
+    .carousel-item.right {
+      transform: translateX(140px) translateY(20px);
+      filter: blur(2px);
+      z-index: 1;
+    }
+    
+    .carousel-item.far-left {
+      transform: translateX(-580px) translateY(20px);
+      opacity: 0;
+      z-index: 0;
+    }
+    
+    .carousel-item.far-right {
+      transform: translateX(480px) translateY(20px);
+      opacity: 0;
+      z-index: 0;
+    }
+    
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      font-size: 24px;
+      z-index: 10;
+      border: none;
+    }
+    
+    .carousel-button-left {
+      left: 20px;
+    }
+    
+    .carousel-button-right {
+      right: 20px;
+    }
+    
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    
+    .carousel-controls {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    @media (max-width: 480px) {
+  .carousel-container {
+    width: 100%;
+    padding: 0 10px; /* Optional: Add padding to prevent the items from touching the edges */
+  }
+
+  .carousel-item {
+    width: 160px; /* Adjust the size of the items on small screens */
+    height: 150px; /* Adjust the height */
+    font-size: 18px; /* Adjust the font size */
+  }
+
+  .carousel-item.left {
+    transform: translateX(-260px) translateY(20px);
+  }
+
+  .carousel-item.center {
+    transform: translateX(-50%) translateY(-20px); /* Keep it centered */
+    height: 200px; /* Adjust height for smaller screens */
+    width: 200px; /* Adjust width for smaller screens */
+  }
+
+  .carousel-item.right {
+    transform: translateX(100px) translateY(20px);
+  }
+
+  .carousel-item.far-left {
+    transform: translateX(-520px) translateY(20px);
+  }
+
+  .carousel-item.far-right {
+    transform: translateX(200px) translateY(20px);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="carousel-container" id="carousel">
+    <h2 class="sr-only">Image Carousel</h2>
+    <div class="carousel-viewport" id="carouselViewport">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-item" data-index="0" tabindex="0" role="img" aria-label="Item 1">Item 1</div>
+        <div class="carousel-item" data-index="1" tabindex="0" role="img" aria-label="Item 2">Item 2</div>
+        <div class="carousel-item" data-index="2" tabindex="0" role="img" aria-label="Item 3">Item 3</div>
+        <div class="carousel-item" data-index="3" tabindex="0" role="img" aria-label="Item 4">Item 4</div>
+        <div class="carousel-item" data-index="4" tabindex="0" role="img" aria-label="Item 5">Item 5</div>
+      </div>
+    </div>
+    <button class="carousel-button carousel-button-left" id="prevButton" aria-label="Previous slide">❮</button>
+    <button class="carousel-button carousel-button-right" id="nextButton" aria-label="Next slide">❯</button>
+    
+    <div class="carousel-controls" role="tablist">
+      <span class="sr-only">Slide indicators</span>
+      <!-- Indicators will be added by JavaScript -->
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const items = Array.from(document.querySelectorAll('.carousel-item'));
+      const prevButton = document.getElementById('prevButton');
+      const nextButton = document.getElementById('nextButton');
+      const carousel = document.getElementById('carousel');
+      const carouselTrack = document.getElementById('carouselTrack');
+      const controlsContainer = document.querySelector('.carousel-controls');
+      
+      // Total number of items
+      const totalItems = items.length;
+      
+      // Current active index (center position)
+      let activeIndex = 0;
+      let isAnimating = false;
+      
+      // Create indicator buttons for screen readers and keyboard navigation
+      items.forEach((item, index) => {
+        const button = document.createElement('button');
+        button.setAttribute('type', 'button');
+        button.setAttribute('role', 'tab');
+        button.setAttribute('aria-label', `Go to slide ${index + 1}`);
+        button.setAttribute('aria-selected', index === activeIndex ? 'true' : 'false');
+        button.classList.add('sr-only');
+        button.addEventListener('click', () => {
+          goToSlide(index);
+        });
+        controlsContainer.appendChild(button);
+      });
+      
+      const indicators = Array.from(controlsContainer.querySelectorAll('button'));
+      
+      // Initialize carousel
+      function initCarousel() {
+        updateCarousel();
+        // Make the carousel keyboard navigable
+        setupKeyboardNavigation();
+        // Set up touch events for mobile swipe
+        setupTouchEvents();
+      }
+      
+      // Update carousel display based on current activeIndex
+      function updateCarousel() {
+        items.forEach((item, index) => {
+          // Remove all position classes first
+          item.classList.remove('left', 'center', 'right', 'far-left', 'far-right');
+          
+          // Calculate relative position with proper modulo for looping
+          const relativePos = (((index - activeIndex) % totalItems) + totalItems) % totalItems;
+          
+          // Add the proper position class
+          if (relativePos === 0) {
+            item.classList.add('center');
+            item.setAttribute('aria-hidden', 'false');
+          } else if (relativePos === totalItems - 1) {
+            item.classList.add('left');
+            item.setAttribute('aria-hidden', 'false');
+          } else if (relativePos === 1) {
+            item.classList.add('right');
+            item.setAttribute('aria-hidden', 'false');
+          } else if (relativePos === totalItems - 2) {
+            item.classList.add('far-left');
+            item.setAttribute('aria-hidden', 'true');
+          } else if (relativePos === 2) {
+            item.classList.add('far-right');
+            item.setAttribute('aria-hidden', 'true');
+          } else {
+            // For items further away, hide them entirely
+            item.style.display = 'none';
+            item.setAttribute('aria-hidden', 'true');
+          }
+          
+          // Ensure all classified items are displayed
+          if (item.classList.contains('left') || 
+              item.classList.contains('center') || 
+              item.classList.contains('right') || 
+              item.classList.contains('far-left') || 
+              item.classList.contains('far-right')) {
+            item.style.display = 'flex';
+          }
+        });
+        
+        // Update accessibility info
+        carousel.setAttribute('aria-activedescendant', items[activeIndex].id || '');
+        
+        // Update indicator buttons
+        indicators.forEach((indicator, index) => {
+          indicator.setAttribute('aria-selected', index === activeIndex ? 'true' : 'false');
+        });
+        
+        // Announce slide change to screen readers
+        announceSlideChange();
+      }
+      
+      // Go to a specific slide
+      function goToSlide(index) {
+        if (isAnimating || index === activeIndex) return;
+        isAnimating = true;
+        
+        activeIndex = index;
+        updateCarousel();
+        
+        setTimeout(() => {
+          isAnimating = false;
+        }, 500); // Match the transition duration
+      }
+      
+      // Move to previous slide
+      function moveLeft() {
+        if (isAnimating) return;
+        isAnimating = true;
+        
+        activeIndex = (activeIndex - 1 + totalItems) % totalItems;
+        updateCarousel();
+        
+        setTimeout(() => {
+          isAnimating = false;
+        }, 500); // Match the transition duration
+      }
+      
+      // Move to next slide
+      function moveRight() {
+        if (isAnimating) return;
+        isAnimating = true;
+        
+        activeIndex = (activeIndex + 1) % totalItems;
+        updateCarousel();
+        
+        setTimeout(() => {
+          isAnimating = false;
+        }, 500); // Match the transition duration
+      }
+      
+      // Set up touch events for mobile swipe
+      function setupTouchEvents() {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        carousel.addEventListener('touchstart', e => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        carousel.addEventListener('touchend', e => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+          const swipeThreshold = 50; // Minimum distance for a swipe
+          if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left -> move right
+            moveRight();
+          } else if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right -> move left
+            moveLeft();
+          }
+        }
+      }
+      
+      // Set up keyboard navigation
+      function setupKeyboardNavigation() {
+        carousel.setAttribute('role', 'region');
+        carousel.setAttribute('aria-roledescription', 'carousel');
+        
+        // Add unique IDs to items if they don't have them
+        items.forEach((item, index) => {
+          if (!item.id) {
+            item.id = `carousel-item-${index}`;
+          }
+        });
+        
+        // Add keyboard event listeners
+        carousel.addEventListener('keydown', e => {
+          switch (e.key) {
+            case 'ArrowLeft':
+              moveLeft();
+              e.preventDefault();
+              break;
+            case 'ArrowRight':
+              moveRight();
+              e.preventDefault();
+              break;
+            case 'Home':
+              goToSlide(0);
+              e.preventDefault();
+              break;
+            case 'End':
+              goToSlide(totalItems - 1);
+              e.preventDefault();
+              break;
+          }
+        });
+        
+        // Ensure focus management
+        items.forEach(item => {
+          item.addEventListener('focus', () => {
+            goToSlide(parseInt(item.dataset.index));
+          });
+        });
+      }
+      
+      // Announce slide changes to screen readers
+      function announceSlideChange() {
+        const liveRegion = document.getElementById('carousel-live-region');
+        
+        if (!liveRegion) {
+          const newRegion = document.createElement('div');
+          newRegion.id = 'carousel-live-region';
+          newRegion.setAttribute('aria-live', 'polite');
+          newRegion.setAttribute('aria-atomic', 'true');
+          newRegion.className = 'sr-only';
+          document.body.appendChild(newRegion);
+        }
+        
+        const announcement = `Slide ${activeIndex + 1} of ${totalItems}, ${items[activeIndex].textContent}`;
+        document.getElementById('carousel-live-region').textContent = announcement;
+      }
+      
+      // Event listeners
+      prevButton.addEventListener('click', moveLeft);
+      nextButton.addEventListener('click', moveRight);
+      
+      // Initialize the carousel
+      initCarousel();
+    });
+  </script>
+</body>
+</html>
