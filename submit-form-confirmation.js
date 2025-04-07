@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add event listener for form submission
     contactForm.addEventListener('submit', function(event) {
-        // Prevent default form submission to handle it with JavaScript
-        event.preventDefault();
         
         // Create a confirmation message container
         const confirmationMessage = document.createElement('div');
