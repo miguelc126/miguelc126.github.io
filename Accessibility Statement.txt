@@ -1,67 +1,67 @@
-Johnson & Dunn Construction Consultation LLC is committed to ensuring digital accessibility for people with disabilities. We are continually improve the user experience for everyone and applying the relevant accessibility standards.
+    <p>Johnson & Dunn Construction Consultation LLC is committed to ensuring digital accessibility for people with disabilities. We are continually improve the user experience for everyone and applying the relevant accessibility standards.<br>
 
 
-<b>Measures to support accessibility</b>
-Johnson & Dunn Construction Consultation LC takes the following measures to ensure accessibility of the Johnson & Dunn Construction Consultation LLC website:
-- Include accessibility as part of our mission statement.
-- Include people with disabilities in our design personas.
-- Review Web Content Accessibility Guidelines and revise site content if needed to ensure conformance with above guidelines.
+<b>Measures to support accessibility</b><br>
+Johnson & Dunn Construction Consultation LC takes the following measures to ensure accessibility of the Johnson & Dunn Construction Consultation LLC website:<br>
+- Include accessibility as part of our mission statement.<br>
+- Include people with disabilities in our design personas.<br>
+- Review Web Content Accessibility Guidelines and revise site content if needed to ensure conformance with above guidelines. <br>
 
 
-<b>Conformance status</b>
-The Web Content Accessibility Guidelines (WCAG) ((<-thinking hyperlink here?)) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines the three levels of conformance: level A, Level AA, and level AAA. The Johnson & Dunn Construction Consultation LLC website is conformant with WCAG 2.1 level AA.
+<b>Conformance status</b><br>
+<a href="https://www.w3.org/TR/WCAG21/">The Web Content Accessibility Guidelines (WCAG)</a>  defines requirements for designers and developers to improve accessibility for people with disabilities. It defines the three levels of conformance: level A, Level AA, and level AAA. The Johnson & Dunn Construction Consultation LLC website is conformant with WCAG 2.1 level AA.<br>
 
-<larger text size> Additional accessibility considerations</larger text size>
+<b>Additional accessibility considerations</b><br>
 
-Our goal is WCAG 2.1 level AA conformance. However, we have also applied some Level AAA Success Criteria: (I'll get a list of the difference conformance levels and when we're going through everything at the end we can see where this is. If we're only at level AA we can just delete this part.)
-
-
-<b>Feedback</b>
-We welcome your feedback on the accessibility of the Johnson & Dunn Construction Consultation LLC website. Please let us know if you encounter accessibility barriers on our website:
-- Phone
-- Email
-- Address
-
-We will respond to such feedback as quickly as possible and speak with our site development team to discuss options and alterations.
+Our goal is WCAG 2.1 level AA conformance. However, we have also applied some Level AAA Success Criteria: (I'll get a list of the difference conformance levels and when we're going through everything at the end we can see where this is. If we're only at level AA we can just delete this part.)<br>
 
 
-<b>Compatibility with browsers and assistive technologies</b>
-Johnson & Dunn Construction Consultation LLC website is designed to be compatible with the following assistive technologies:
-((EX))- Microsoft Edge screen reading functions on Windows 10 
+<b>Feedback</b><br>
+We welcome your feedback on the accessibility of the Johnson & Dunn Construction Consultation LLC website. Please let us know if you encounter accessibility barriers on our website:<br>
+- Phone<br>
+- Email<br>
+- Address<br>
 
-Johnson & Dunn Construction Consultation LLC website is not compatible with:
-((EX))- Browsers of more than 4 previous major versions or mobile operating systems older than 5 years
-
-
-<b>Technical Specifications</b>
-Accessibility of Johnson & Dunn Construction Consultation LLC website relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:
-- HTML
-- CSS
-- JavaScript
-- (Any others)
-
-These technologies are relied upon for conformance with the accessibility standards used.
+We will respond to such feedback as quickly as possible and speak with our site development team to discuss options and alterations.<br>
 
 
-<b>Limitations and alternatives</b>
-Despite our best efforts to ensure accessibility of the Johnson & Dunn Construction Consultation LLC website, there may be some limitations. Below is a description of our known limitations and potential solutions. Please contact us via our information provided above under "Feedback" if you observe an issue not listed below.
+<b>Compatibility with browsers and assistive technologies</b><br>
+Johnson & Dunn Construction Consultation LLC website is designed to be compatible with the following assistive technologies:<br>
+((EX))- Microsoft Edge screen reading functions on Windows 10 <br>
 
-Known limitations for Johnson & Dunn Construction Consultation LLC website:
-1. <b>Comments from users:</b> Unfortunately information that is provided to us via the "Contact Us" form on our site may not have text to speech capabilities depending on the information input. For those experiencing difficulties with this but that still wish to contact us, our contact information is provided.
-
-
-<b>Assessment approach</b>
-Johnson & Dunn Construction Consultation LLC assessed the accessibility of our website by the following approach:
-- Informed our site development team of our need for accessibility inclusions and ensured that they were met along the way as the site was developed.
+Johnson & Dunn Construction Consultation LLC website is not compatible with:<br>
+((EX))- Browsers of more than 4 previous major versions or mobile operating systems older than 5 years<br>
 
 
-<b>Formal approval of this accessibility statement</b>
-This Accessibility Statement is approved by:
+<b>Technical Specifications</b><br>
+Accessibility of Johnson & Dunn Construction Consultation LLC website relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:<br>
+- HTML<br>
+- CSS<br>
+- JavaScript<br>
+- (Any others)<br>
 
-Johnson & Dunn Construction Consultation LLC
-((Whichever of them wants to read this to verify statements))
-((Whatever said persons job title is))
+These technologies are relied upon for conformance with the accessibility standards used.<br>
 
 
-<b>Formal Complaints</b>
-We aim to respond to accessibility feedback as quickly as possible, however please keep in mind that we must reach out to our site development team in order to address possible solutions to issues you encounter. We aim to keep you in the communications as often as possible so that you do not feel that your issues are being neglected. You are entitled to escalate a complaint to the national authority, should you be dissatisfied with our response to you. ((THIS LAST STATEMENT IS REQUIRED, THEY HAVE TO LET PEOPLE KNOW THAT))
+<b>Limitations and alternatives</b><br>
+Despite our best efforts to ensure accessibility of the Johnson & Dunn Construction Consultation LLC website, there may be some limitations. Below is a description of our known limitations and potential solutions. Please contact us via our information provided above under "Feedback" if you observe an issue not listed below.<br>
+
+<b>Known limitations for Johnson & Dunn Construction Consultation LLC website:</b><br>
+1. <b>Comments from users:</b> Unfortunately information that is provided to us via the "Contact Us" form on our site may not have text to speech capabilities depending on the information input. For those experiencing difficulties with this but that still wish to contact us, our contact information is provided.<br>
+
+
+<b>Assessment approach</b><br>
+Johnson & Dunn Construction Consultation LLC assessed the accessibility of our website by the following approach:<br>
+- Informed our site development team of our need for accessibility inclusions and ensured that they were met along the way as the site was developed.<br>
+
+
+<b>Formal approval of this accessibility statement</b><br>
+This Accessibility Statement is approved by:<br>
+
+Johnson & Dunn Construction Consultation LLC<br>
+((Whichever of them wants to read this to verify statements))<br>
+((Whatever said persons job title is))<br>
+
+
+<b>Formal Complaints</b><br>
+We aim to respond to accessibility feedback as quickly as possible, however please keep in mind that we must reach out to our site development team in order to address possible solutions to issues you encounter. We aim to keep you in the communications as often as possible so that you do not feel that your issues are being neglected. You are entitled to escalate a complaint to the national authority, should you be dissatisfied with our response to you.</p>

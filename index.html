@@ -10,17 +10,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script defer src="site-script.js"></script>
+    <script defer src="submit-form-confirmation.js"></script>
 </head>
 <body>
     <header>
         <nav class="nav-bar" aria-label="Main navigation">
-            <div class="nav-container">
-                <a href="#home" class="individual-nav-bar" data-target="home" aria-current="page">Home</a>
-                <a href="#about-us" class="individual-nav-bar" data-target="about-us">About Us</a>
-                <a href="#services" class="individual-nav-bar" data-target="services">Services</a>
-                <a href="#contact" class="individual-nav-bar" data-target="contact-us">Contact Us</a>
+            <div class="nav-container" tabindex="1">
+                <a href="#home" class="individual-nav-bar" tabindex="2" aria-current="page">Home</a>
+                <a href="#about-us" class="individual-nav-bar" tabindex="3">About Us</a>
+                <a href="#services" class="individual-nav-bar" tabindex="4">Services</a>
+                <a href="#contact-us" class="individual-nav-bar" tabindex="5">Contact Us</a>
             </div>
         </nav>
+        <!-- Hamburger nav -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <div class="hamburger-menu">
+            <div><a class="icon" tabindex="1">&#9776;</a></div> <!-- Hamburger icon -->
+            <div id="myLinks">
+                <a href="#home" class="individual-nav-bar" tabindex="2">Home</a> 
+                <a href="#about-us" class="individual-nav-bar" tabindex="3">About</a>
+                <a href="#services" class="individual-nav-bar" tabindex="4">Services</a>
+                <a href="#contact-us" class="individual-nav-bar" tabindex="5">Contact</a>
+            </div>
+        </span>
+        </div>
     </header>
 
     <main>
@@ -71,7 +85,7 @@
 
         <!--Services Section-->
         <section id="services" class="default-section">
-            <h2 class="section-header centered">Our Services</h2>
+            <h2 class="section-header-centered">Our Services</h2>
             <header class="service-subheader">Our services aim to streamline workflows, reduce risks, and most importantly of all, reduce the burden off your shoulders</header>
                 <img src="./Stock Imgs/pexels-vlada-karpovich-7434021.jpg" 
                     alt="placeholder" 
@@ -145,24 +159,50 @@
         </section>
 
         <!--Contact Us Section-->
-        <section id="contact-us" class="default-section">
-            <h2 class="section-header">How Can We Help?</h2>
-            <form action="https://formsubmit.co/test" method="POST">
-                <input type="hidden" name="_subject" value="New Email!">
-                <br>
-                <input type="f_name" name="first_name" placeholder="First Name"required>
-                <br>
-                <input type="l_name" name="last_name" placeholder="Last Name" required>
-                <br>       
-                <input type="email" name="email" placeholder="Email Address" required>
-                <br>
-                <input type="text" name="message" placeholder="Write your message here." required>
-                <br>
-                <input type="checkbox" id="agreement" name="agreement" required>
-                <label for="agreement">Do you agree to the terms and conditions</label>
-                <br>
-                <button type="submit" class="submitButton">Send</button>
-            </form>
+        <section id="contact-us" class="contact-page">
+            <h2 class="section-header-centered">How Can We Help?</h2>
+            <div class="contact-layout">
+                <form action="https://formsubmit.co/" method="POST" class="contact-form">
+                    <div class="form-container">
+                        <div class="form-group">
+                            <label for="first_name">First Name</label>
+                            <input type="f_name" id="first_name" name="first_name" placeholder="Enter your first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Last Name</label>
+                            <input type="l_name" id="last_name" name="last_name" placeholder="Enter your last name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea type="message" id="message" name="message" placeholder="Write your message here" required></textarea>
+                        </div>
+                        <div class="agreement-container">
+                            <input type="checkbox" id="agreement" name="agreement" required>
+                            <label for="agreement">I agree to the terms and conditions</label>
+                        </div>
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </div>
+                </form>
+    
+                <div class="contact-info-section">
+                    <div class="contact-info-card">
+                        <h3>Give us a call.</h3>
+                        <p class="contact-card-text">(919) 285-8326</p> 
+                    </div>
+                    <div class="contact-info-card">
+                        <h3>Or Send an Email.</h3>
+                        <p class="contact-card-text">Placeholder@gmail.com</p> 
+                    </div>
+                    <div class="contact-info-card">
+                        <h3>Can't Contact Us By Phone or Email?</h3>
+                        <p class="contact-card-text">Send us a message on Facebook or Twitter</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 

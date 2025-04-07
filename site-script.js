@@ -1,74 +1,91 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Initialize Nav Bar functionality
-    initNavBar();
     // Initialize Nav Bar Animation
     initNavAnimation();
+    // Initialize Hamburger Nav bar
+    initHamburgerNav();
     // Initialize Service Carousel
     initServiceCarousel();
 });
 
-// Navigation Bar Functionality
-function initNavBar() {
-    function scrollTo(sectionID) {
-        const section = document.getElementById(sectionID);
-        if (section) {
-            section.scrollIntoView({behavior: "smooth"});
-        } else {
-            console.error(`Section with ID ${sectionID} not found!`)
-        }
-    }
-
-    const navButtons = document.querySelectorAll(".individual-nav-bar");
-    navButtons.forEach(function(button) {
-        button.addEventListener("click", function (event) {
-            const targetID = button.getAttribute("data-target");
-            scrollTo(targetID);
-        })
-    })
-}
-
 // Navigation Bar home fade in animation
 function initNavAnimation() {
-    // Navigation Bar Home Section Fade in animation
     const navbar = document.querySelector('.nav-bar');
+    const hamburgerNav = document.querySelector('.hamburger-menu');
     const homeSection = document.querySelector('#home');
-    let homeSectionBottom = homeSection.offsetTop + homeSection.offsetHeight;
-    let isTransparent = false;
-    let lastScrollY = window.scrollY;
-    let scheduledAnimationFrame = false;
-    function updateNavbar() {
-        const currentScrollY = window.scrollY;
 
-        // Updates DOM only when we cross this threshold
-        const shouldBeTransparent = currentScrollY < homeSectionBottom;
-        if (shouldBeTransparent !== isTransparent) {
-            if (shouldBeTransparent) {
-                navbar.classList.add('nav-bar-transparent');
-            } else {
-                navbar.classList.remove('nav-bar-transparent');
-            }
-            isTransparent = shouldBeTransparent
+    // Sentinel element for bottom of home section. Used to watch if navbar is intersecting home
+    const bottomSentinel = document.createElement('div');
+
+    // Sentinel styles
+    [bottomSentinel].forEach(element => {
+        element.style.height = '1px';
+        element.style.width = '100%';
+        element.style.position = 'absolute';
+        element.style.left = '0';
+        element.style.visibility = 'hidden';
+    });
+
+    // Positioning of sentinel
+    bottomSentinel.style.bottom = '0';
+    
+    // Appending sentinel to Home Section
+    homeSection.appendChild(bottomSentinel);
+
+    // Intersection observer
+    const navObserver = new IntersectionObserver((sentinels) => {
+        console.log('is observing');
+        // Executes when sentinel enter/exit viewport
+        const isOverHomeSection = sentinels.some(sentinel => sentinel.isIntersecting);
+        if (isOverHomeSection) {
+            // If either sentinel are visible, navbar is still over the homepage
+            navbar.classList.add('nav-bar-transparent');
+            hamburgerNav.classList.add('nav-bar-transparent');
+        } else {
+            //If both sentinels are not visible, navbar is past the homepage
+            navbar.classList.remove('nav-bar-transparent');
+            hamburgerNav.classList.remove('nav-bar-transparent');
         }
-        scheduledAnimationFrame = false; //Controller variable for throttling
-    }
-
-    // Throttled the scroll event listener using requestAnimationFrame
-    window.addEventListener('scroll', function() {
-        lastScrollY = this.window.scrollY;
-        if (!scheduledAnimationFrame) {
-            scheduledAnimationFrame = true;
-            this.window.requestAnimationFrame(updateNavbar);
-        }
-    }, { passive: true }); // Passive flag for improved performance
-
-    // Recalculation of dimensions on window resize
-    window.addEventListener('resize', function() {
-        homeSectionBottom = homeSection.offsetTop + homeSection.offsetHeight;
-        updateNavbar();
-    }, { passive: true });
-    updateNavbar(); // Initial function call on page load
+    }, {
+        threshold: 0, // Threshold for how much navbar needs to enter/exit viewport before observed
+        rootMargin: `-${navbar.offsetHeight}px 0px 0px 0px` // Observer takes height of navbar into account.
+    });
+    navObserver.observe(bottomSentinel);
 }
+//Hamburger Navbar
+function initHamburgerNav() {
+    const menuIcon = document.querySelector(".icon");
+    const menuLinks = document.getElementById("myLinks");
+    const navbar = document.querySelector('.nav-container');
 
+    //Open menu when clicking hamburger icon
+    menuIcon.addEventListener('click', () => {
+        menuLinks.classList.toggle('show');
+    });
+    menuIcon.addEventListener("keydown", (e) => {
+        if (e.key === 'Enter') {
+            console.log('enter pressed inside added')
+            menuLinks.classList.toggle("show");
+        }
+    });
+    
+    // Close menu when clicking a link
+    menuLinks.addEventListener('click', () => {
+        menuLinks.classList.toggle('show');
+    });
+    menuLinks.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'a' && e.key === 'Enter') {
+            console.log('enter pressed inside remove');
+            menuLinks.classList.toggle('show');
+        }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (event) => {
+        if (!menuIcon.contains(event.target) && !menuLinks.contains(event.target)) {
+            menuLinks.classList.remove("show");
+            }
+        });
+}
 // Service Carousel
 function initServiceCarousel() { 
     const items = Array.from(document.querySelectorAll('.service-item'));
