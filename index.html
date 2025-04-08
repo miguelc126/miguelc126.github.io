@@ -14,25 +14,24 @@
 </head>
 <body>
     <header>
-        <nav class="nav-bar" aria-label="Main navigation">
-            <div class="nav-container" tabindex="1">
-                <a href="#home" class="individual-nav-bar" tabindex="2" aria-current="page">Home</a>
-                <a href="#about-us" class="individual-nav-bar" tabindex="3">About Us</a>
-                <a href="#services" class="individual-nav-bar" tabindex="4">Services</a>
-                <a href="#contact-us" class="individual-nav-bar" tabindex="5">Contact Us</a>
-                <a href="test.html" class="individual-nav-bar">Go to test page</a>
+        <nav class="nav-bar" aria-label="Main navigation" tabindex="0">
+            <div class="nav-container">
+                <a href="#home" class="individual-nav-bar" tabindex="0" aria-current="page" aria-label="Go to Home">Home</a>
+                <a href="#about-us" class="individual-nav-bar" tabindex="0" aria-label="Go to About Us">About Us</a>
+                <a href="#services" class="individual-nav-bar" tabindex="0" aria-label="Go to Services">Services</a>
+                <a href="#contact-us" class="individual-nav-bar" tabindex="0" aria-label="Go to Contact Us">Contact Us</a>
             </div>
         </nav>
         <!-- Hamburger nav -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <div class="hamburger-menu">
-            <div><a class="icon" tabindex="1">&#9776;</a></div> <!-- Hamburger icon -->
+            <div><button class="icon" tabindex="1" aria-label="Open menu" aria-expanded="false">&#9776;</button></div> <!-- Hamburger icon -->
             <div id="myLinks">
-                <a href="#home" class="individual-nav-bar" tabindex="2">Home</a> 
-                <a href="#about-us" class="individual-nav-bar" tabindex="3">About</a>
-                <a href="#services" class="individual-nav-bar" tabindex="4">Services</a>
-                <a href="#contact-us" class="individual-nav-bar" tabindex="5">Contact</a>
+                <a href="#home" class="individual-nav-bar" tabindex="0" aria-label="Go to Home">Home</a> 
+                <a href="#about-us" class="individual-nav-bar" tabindex="0" aria-label="Go to About Us">About</a>
+                <a href="#services" class="individual-nav-bar" tabindex="0" aria-label="Go to Services">Services</a>
+                <a href="#contact-us" class="individual-nav-bar" tabindex="0" aria-label="Go to Contact Us">Contact</a>
             </div>
         </span>
         </div>
@@ -87,7 +86,7 @@
         <!--Services Section-->
         <section id="services" class="default-section">
             <h2 class="section-header-centered">Our Services</h2>
-            <header class="service-subheader">Our services aim to streamline workflows, reduce risks, and most importantly of all, reduce the burden off your shoulders</header>
+            <h3 class="service-subheader">Our services aim to streamline workflows, reduce risks, and most importantly of all, reduce the burden off your shoulders</h3>
                 <img src="./Stock Imgs/pexels-vlada-karpovich-7434021.jpg" 
                     alt="placeholder" 
                     class="service-image"
@@ -96,7 +95,7 @@
             
             <div class="service-carousel" id="carousel">
                 <div class="carousel-viewport" id="carouselViewport">
-                        <div class="service-item" data-index="0">
+                        <div class="service-item" data-index="0" tabindex="0" aria-label="Service 1">
                             <h2 class="service-item-header">Insurance Liaisons</h2>
                             <hr class="service-item-spacer">
                             <p class="service-item-text">
@@ -105,10 +104,10 @@
                                 We are prepared to assist you throughout the claim and appeal processes, and help you better understand your insurance needs.
                             </p>
                             <div class="icon-box">
-                                <div class="icon"><img src="Stock Imgs/handshake-icon.png" alt="icon of a hammer and wrench crossing" loading="lazy"></div>
+                                <div class="icon"><img src="Stock Imgs/handshake-icon.png" alt="icon of a handshake" loading="lazy"></div>
                             </div>     
                         </div>
-                        <div class="service-item" data-index="1">
+                        <div class="service-item" data-index="1" tabindex="0" aria-label="Service 2">
                             <h2 class="service-item-header">Navigating Protocols</h2>
                             <hr class="service-item-spacer">
                             <p class="service-item-text">
@@ -117,10 +116,10 @@
                                 We can aid you in understanding your insurance policy, and clarify the coverage you are entitled to.
                             </p>
                             <div class="icon-box">
-                                <div class="icon"><img src="Stock Imgs/contract-icon.png" alt="icon of a support representative" loading="lazy"></div>
+                                <div class="icon"><img src="Stock Imgs/contract-icon.png" alt="icon of a contract" loading="lazy"></div>
                             </div>
                         </div>
-                        <div class="service-item" data-index="2">
+                        <div class="service-item" data-index="2" tabindex="0" aria-label="Service 3">
                         <h2 class="service-item-header">Claim Support</h2>
                         <hr class="service-item-spacer">
                         <p class="service-item-text">
@@ -129,10 +128,10 @@
                             We specialize in meticulously preparing claim supplements, to ensure you get the most out of your insurance policy.
                         </p>
                             <div class="icon-box">
-                                <div class="icon"><img src="Stock Imgs/consult-icon.png" alt="Icon of an engineer wearing a hardhat with gears next to him" loading="lazy"></div>
+                                <div class="icon"><img src="Stock Imgs/consult-icon.png" alt="Icon of a support representative" loading="lazy"></div>
                             </div>
                         </div>
-                        <div class="service-item" data-index="3">
+                        <div class="service-item" data-index="3" tabindex="0" aria-label="Service 4">
                         <h2 class="service-item-header">Job Estimating</h2>
                         <hr class="service-item-spacer">
                         <p class="service-item-text">
@@ -143,7 +142,7 @@
                                 <div class="icon"><img src="Stock Imgs/water-damage.png" alt="Icon a house with a leaky roof" loading="lazy"></div>
                             </div>
                         </div>
-                        <div class="service-item" data-index="4">
+                        <div class="service-item" data-index="4" tabindex="0" aria-label="Service 5">
                             <h2 class="service-item-header">Clerical Work</h2>
                             <hr class="service-item-spacer">
                             <p class="service-item-text">
@@ -151,11 +150,15 @@
                                 We can assist you with insurance matters, and help manage relevant paperwork and regulatory requirements.
                             </p>
                                 <div class="icon-box">
-                                    <div class="icon"><img src="Stock Imgs/penpaper-icon.png" alt="placeholder symbol" loading="lazy"></div>
+                                    <div class="icon"><img src="Stock Imgs/penpaper-icon.png" alt="Icon of quill and paper " loading="lazy"></div>
                                 </div>
                         </div>
-                        <button class="carousel-button carousel-button-left" id="prevButton">❮</button>
-                        <button class="carousel-button carousel-button-right" id="nextButton">❯</button>
+                        <button class="carousel-button carousel-button-left" id="prevButton" aria-label="Previous Service">❮</button>
+                        <button class="carousel-button carousel-button-right" id="nextButton" aria-label="Next Service">❯</button>
+                </div>
+                <div class="carousel-controls" role="tablist">
+                    <span class="sr-only">Slide indicators</span>
+                    <!-- Indicators added by JavaScript-->
                 </div>
         </section>
 
@@ -166,24 +169,24 @@
                 <form action="https://formsubmit.co/063065a545b20aa0428e08205f0714ed" method="POST" class="contact-form">
                     <div class="form-container">
                         <div class="form-group">
-                            <label for="first_name">First Name</label>
-                            <input type="f_name" id="first_name" name="first_name" placeholder="Enter your first name" required>
+                            <label for="first_name">First Name <span style="color: red;">*</span></label>
+                            <input type="f_name" id="first_name" name="first_name" placeholder="Enter your first name" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <label for="last_name">Last Name</label>
-                            <input type="l_name" id="last_name" name="last_name" placeholder="Enter your last name" required>
+                            <label for="last_name">Last Name <span style="color: red;">*</span></label>
+                            <input type="l_name" id="last_name" name="last_name" placeholder="Enter your last name" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                            <label for="email">Email Address <span style="color: red;">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea type="message" id="message" name="message" placeholder="Write your message here" required></textarea>
+                            <label for="message">Your Message <span style="color: red;">*</span></label>
+                            <textarea type="message" id="message" name="message" placeholder="Write your message here" required aria-required="true"></textarea>
                         </div>
                         <div class="agreement-container">
-                            <input type="checkbox" id="agreement" name="agreement" required>
-                            <label for="agreement">I agree to the terms and conditions</label>
+                            <input type="checkbox" id="agreement" name="agreement" required aria-required="true">
+                            <label for="agreement">I agree to the terms and conditions <span style="color: red;">*</span></label>
                         </div>
                         <button type="submit" class="submit-button">Send Message</button>
                     </div>
@@ -213,8 +216,8 @@
             <div class="footer-section">
                 <h3>LET'S CONNECT</h3>
                 <div class="social-icons">
-                    <a href="https://x.com/johnsondunnllc" rel="noopener noreferrer" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/johnsondunnllc/" rel="noopener noreferrer" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/johnsondunnllc" rel="noopener noreferrer" target="_blank" aria-label="Our Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/johnsondunnllc/" rel="noopener noreferrer" target="_blank" aria-label="Our Facebook"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
             
@@ -236,10 +239,10 @@
             <div class="footer-section">
                 <h3>QUICKLINKS</h3>
                 <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about-us">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="#home" aria-label="Go to Home">Home</a></li>
+                    <li><a href="#about-us" aria-label="Go to About Us">About Us</a></li>
+                    <li><a href="#services" aria-label="Go to Services">Services</a></li>
+                    <li><a href="#contact-us" aria-label="Go to Contact Us">Contact Us</a></li>
                 </ul>
             </div>
         </div>

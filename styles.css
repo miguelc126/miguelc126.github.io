@@ -120,6 +120,9 @@ img {
 .hamburger-menu .icon {
     font-size: 24px;
     color: white;
+    background-color: transparent;
+    border: none;
+    text-decoration: none;
     cursor: pointer;
     padding: 10px;
 }
@@ -287,6 +290,7 @@ img {
     font-size: 1.1rem;
     text-align: center;
     margin-bottom: 10px;
+    font-weight: normal;
 }
 
 .service-image {
@@ -436,6 +440,18 @@ img {
 
 .carousel-button-right {
     right: 0px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 /*Contact us*/
