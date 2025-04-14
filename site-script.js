@@ -105,7 +105,7 @@ function initServiceCarousel() {
         const button = document.createElement('button');
         button.setAttribute('type', 'button');
         button.setAttribute('role', 'tab');
-        button.setAttribute('aria-label', `Go to slide ${index + 1}`);
+        button.setAttribute('aria-label', `Go to service ${index + 1}`);
         button.setAttribute('aria-selected', index === activeIndex ? 'true' : 'false');
         button.classList.add('sr-only');
         button.addEventListener('click', () => {
@@ -119,8 +119,6 @@ function initServiceCarousel() {
     // Associated function calls for carousel setup
 
     updateCarousel();
-    // Allows for keyboard navigation
-    setupKeyboardNavigation();
     // Allows for mobile swipe navigation
     setupTouchEvents();
 
@@ -137,26 +135,32 @@ function initServiceCarousel() {
             case relativePos === 0:
                 item.classList.add('center');
                 item.setAttribute('aria-hidden', 'false');
+                item.tabIndex = 0;
                 break;
             case relativePos === totalItems - 1:
                 item.classList.add('left');
                 item.setAttribute('aria-hidden', 'false');
+                item.tabIndex = 0;
                 break;
             case relativePos === 1:
                 item.classList.add('right');
                 item.setAttribute('aria-hidden', 'false');
+                item.tabIndex = 0;
                 break;
             case relativePos === totalItems - 2:
                 item.classList.add('far-left');
                 item.setAttribute('aria-hidden', 'true');
+                item.tabIndex = -1;
                 break;
             case relativePos === 2:
                 item.classList.add('far-right');
                 item.setAttribute('aria-hidden', 'true');
+                item.tabIndex = -1;
                 break;
             default:
                 // For any other than the 3 displayed, hide them completely
                 item.style.display = 'none';
+                item.tabIndex = -1;
                 break;
            }
 
@@ -188,6 +192,7 @@ function initServiceCarousel() {
     
         activeIndex = index;
         updateCarousel();
+        items[index].focus();
     
         setTimeout(() => {
             isAnimating = false;
@@ -245,48 +250,6 @@ function initServiceCarousel() {
         }
     }
     
-    // Keyboard Navigation
-    function setupKeyboardNavigation() {
-        carousel.setAttribute('role', 'region');
-        carousel.setAttribute('aria-roledescription', 'services');
-
-        // Add unique IDs to items if they don't have them
-        items.forEach((item, index) => {
-            if (!item.id) {
-                item.id = `carousel-item-${index}`;
-            }
-        });
-    
-        // Keyboard event listeners
-        carousel.addEventListener('keydown', e => {
-            switch (e.key) {
-                case 'ArrowLeft':
-                    moveLeft();
-                    e.preventDefault();
-                    break;
-                case 'ArrowRight':
-                    moveRight();
-                    e.preventDefault();
-                    break;
-                case 'Home':
-                    goToSlide(0);
-                    e.preventDefault();
-                    break;
-                case 'End':
-                    goToSlide(totalItems - 1);
-                    e.preventDefault();
-                    break;
-            }
-        });
-    
-        // Ensure focus management
-        items.forEach(item => {
-            item.addEventListener('focus', () => {
-                goToSlide(parseInt(item.dataset.index));
-            });
-        });
-    }
-
     //Announce slide changes to screen readers
     function announceSlideChange() {
         const liveRegion = document.getElementById('carousel-live-region');
@@ -298,7 +261,7 @@ function initServiceCarousel() {
             newRegion.className = 'sr-only';
             document.body.appendChild(newRegion);
         }
-        const announcement = `Slide ${activeIndex + 1} of ${totalItems}, ${items[activeIndex].textContent}`;
+        const announcement = `Service ${activeIndex + 1} of ${totalItems}, ${items[activeIndex].textContent}`;
         document.getElementById('carousel-live-region').textContent = announcement;
     }
     //Event listeners for buttons

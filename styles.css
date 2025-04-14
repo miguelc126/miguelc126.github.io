@@ -80,6 +80,15 @@ img {
     padding: 0 var(--spacing-unit);
 }
 
+.nav-logo {
+    width: 70px;
+    height: auto;
+    position: absolute;
+    left: var(--spacing-unit);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 /* Individual navigation links */
 .individual-nav-bar {
     color: var(--white);
@@ -128,17 +137,21 @@ img {
 }
 
 #myLinks {
-    display: none;
+    max-height: 0;
+    overflow: hidden;    
+    display: flex;
     flex-direction: column;
     gap: 0.5rem;
     width: 100%;
     position: relative;
     left: 0;
-    padding: 10px;
+    padding: 0px;
+    transition: max-height 0.5s ease, padding 0.5s ease;
 }
 
 #myLinks.show {
-    display: flex;
+    max-height: 500px;
+    padding: 10px;
 }
 
 #myLinks a {
@@ -696,6 +709,7 @@ input[type="checkbox"]:checked::after {
 .footer-links {
     list-style-type: none;
     padding: 0;
+    text-decoration: underline;
 }
 
 .footer-links li {
