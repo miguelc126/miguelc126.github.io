@@ -22,10 +22,10 @@ function main() {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                FirstName: `${firstName}`,
-                LastName: `${lastName}`,
-                email: `${email}`,
-                message: `${message}`
+                'First Name': `${firstName}`,
+                'Last Name': `${lastName}`,
+                Email: `${email}`,
+                Message: `${message}`
             })
         })
             .then(response => response.json())
