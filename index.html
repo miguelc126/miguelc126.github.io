@@ -172,7 +172,7 @@
         <section id="contact-us" class="contact-page">
             <h2 class="section-header-centered" tabindex="0">How Can We Help?</h2>
             <div class="contact-layout">
-                <form action="https://formsubmit.co/063065a545b20aa0428e08205f0714ed" method="POST" class="contact-form">
+                <form class="contact-form">
                     <div class="form-container">
                         <div class="form-group">
                             <label for="first_name">First Name <span style="color: red;">*</span></label>
@@ -194,6 +194,7 @@
                             <input type="checkbox" id="agreement" name="agreement" required aria-required="true">
                             <label for="agreement">I agree to the terms and conditions <span style="color: red;">*</span></label>
                         </div>
+                        <input type="hidden" name="_subject" value="New message submission from website">
                         <button type="submit" class="submit-button">Send Message</button>
                     </div>
                 </form>
