@@ -1,5 +1,9 @@
 // Wait for DOM to fully load
 document.addEventListener('DOMContentLoaded', function() {
+    main();
+});
+
+function main() {
     // Get the form element
     const contactForm = document.querySelector('.contact-form');
     
@@ -7,7 +11,29 @@ document.addEventListener('DOMContentLoaded', function() {
     contactForm.addEventListener('submit', function(event) {
         // Prevent default form submission to handle it with JavaScript
         event.preventDefault();
+        firstName = document.getElementById('first_name').value;
+        lastName = document.getElementById('last_name').value;
+        email = document.getElementById('email').value;
+        message = document.getElementById('message').value;
+        fetch('https://formsubmit.co/063065a545b20aa0428e08205f0714ed', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                FirstName: `${firstName}`,
+                LastName: `${lastName}`,
+                email: `${email}`,
+                message: `${message}`
+            })
+        })
+            .then(createConfirmation)
+            .catch(error => console.log(error));
         
+    });
+ 
+    function createConfirmation() {
         // Create a confirmation message container
         const confirmationMessage = document.createElement('div');
         confirmationMessage.className = 'form-confirmation';
@@ -90,6 +116,5 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add the confirmation message to the page
         document.body.appendChild(confirmationMessage);
-        
-    });
-});
+    }
+}
