@@ -15,23 +15,29 @@ function main() {
         lastName = document.getElementById('last_name').value;
         email = document.getElementById('email').value;
         message = document.getElementById('message').value;
-        fetch('https://formsubmit.co/ajax/063065a545b20aa0428e08205f0714ed', {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                'First Name': `${firstName}`,
-                'Last Name': `${lastName}`,
-                Email: `${email}`,
-                Message: `${message}`
+        subject = document.getElementById('mailSubject').value
+        confirmation = document.getElementById('email_confirm').value;
+        if(confirmation && confirmation.trim() !== '') {
+            //mailsend();
+        } else {
+            fetch('https://formsubmit.co/ajax/063065a545b20aa0428e08205f0714ed', {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    'First Name': `${firstName}`,
+                    'Last Name': `${lastName}`,
+                    Email: `${email}`,
+                    Message: `${message}`,
+                    _subject: `${subject}`
+                })
             })
-        })
-            .then(response => response.json())
-            .then(data => createConfirmation(data))
-            .catch(error => console.log(error));
-        
+                .then(response => response.json())
+                .then(data => createConfirmation(data))
+                .catch(error => console.log(error));
+        }
     });
  
     function createConfirmation(data) {

@@ -51,7 +51,7 @@
                 <!-- Medium image for tablets -->
                 <source media="(max-width: 768px)" srcset="Stock Imgs/pexels-ivan-samkov-4491918-medium.jpg">
                 <!-- Default image fallback -->
-                <img src="./Stock Imgs/pexels-ivan-samkov-4491918.jpg" alt="" style="display:none">
+                <img src="./Stock Imgs/pexels-ivan-samkov-4491918.jpg" alt="Picture of laptop on a workbench " style="display:none">
             </picture>
             
             <div class="home-header">
@@ -69,16 +69,16 @@
                     <br>
                     <p class="about-us-text" tabindex="0">With deep industry expertise and a proactive approach, our team specializes in meticulously preparing claim supplements, navigating intricate insurance protocols, and ensuring every detail is in place for job approvals. We understand the challenges contractors face in managing paperwork and regulatory requirements, and we're here to simplify that process for you.</p>
                     <br>
-                    <p class="about-us-text" tabindex="0">Our commitment to transparency, accuracy, and personalized service means you receive tailored solutions designed to maximize your project's potential. By partnering with John & Dunn LLC, you gain a trusted ally dedicated to protecting your interests and accelerating your success, from claim submission through final job approval.</p>
+                    <p class="about-us-text" tabindex="0">Our commitment to transparency, accuracy, and personalized service means you receive tailored solutions designed to maximize your project's potential. By partnering with Johnson & Dunn, you gain a trusted ally dedicated to protecting your interests and accelerating your success, from claim submission through final job approval.</p>
                 </div>
                 <figure class="section-image-wrapper">
-                    <img src="./Stock Imgs/pexels-reneterp-3990359.jpg" alt="placeholder" class="section-image" loading="lazy" tabindex="0">
+                    <img src="./Stock Imgs/pexels-reneterp-3990359.jpg" alt="Interior of a house under construction" class="section-image" loading="lazy" tabindex="0">
                 </figure>
             </div>
             
             <div class="content-block">
                 <figure class="section-image-wrapper">
-                    <img src="./Stock Imgs/pexels-ajaybhargavguduru-977526.jpg" alt="placeholder" class="section-image" loading="lazy" tabindex="0">
+                    <img src="./Stock Imgs/pexels-ajaybhargavguduru-977526.jpg" alt="Picture of a angle grinder in use" class="section-image" loading="lazy" tabindex="0">
                 </figure>
                 <div class="text-content">
                     <h2 class="section-header" tabindex="0">Mission Statement</h2>
@@ -192,9 +192,14 @@
                         </div>
                         <div class="agreement-container">
                             <input type="checkbox" id="agreement" name="agreement" required aria-required="true">
-                            <label for="agreement">I agree to the terms and conditions <span style="color: red;">*</span></label>
+                            <label for="agreement">I agree to the terms and conditions<span style="color: red;">*</span></label>
+                            <button id="form-privacy-icon" type="button" tabindex="0" aria-label="Open privacy policy"><i class="fas fa-info-circle privacy-icon"></i></button>
                         </div>
-                        <input type="hidden" name="_subject" value="New message submission from website">
+                        <div class="confirm">
+                            <label for="email_confirm">Confirm Email</label>
+                            <input type="text" name="email_confirm" id="email_confirm">
+                        </div>
+                        <input type="hidden" name="_subject" id='mailSubject' value="New message submission from website">
                         <button type="submit" class="submit-button">Send Message</button>
                     </div>
                 </form>
@@ -206,7 +211,7 @@
                     </div>
                     <div class="contact-info-card">
                         <h3 tabindex="0">Or Send an Email.</h3>
-                        <p class="contact-card-text" tabindex="0">Placeholder@gmail.com</p> 
+                        <p class="contact-card-text" id="eml" tabindex="0">Placeholder@gmail.com</p> 
                     </div>
                     <div class="contact-info-card">
                         <h3 tabindex="0">Can't Contact Us By Phone or Email?</h3>
@@ -238,8 +243,8 @@
             <div class="footer-section">
                 <h3 tabindex="0">OUR POLICIES</h3>
                 <ul class="footer-links">
-                    <li tabindex="0">Private Policy</li>
-                    <li tabindex="0">Accessibility Statement</li>
+                    <li><button id="privacy" tabindex="0">Privacy Policy</button></li>
+                    <li><button id="accessibility" tabindex="0">Accessibility Statement</button></li>
                 </ul>
             </div>
             
@@ -255,6 +260,109 @@
         </div>
         <div class="copyright">
             <p tabindex="0">&copy; 2025 Johnson and Dunn Construction Consultants. All Rights Reserved.</p>
+        </div>
+        <!--Private Policy & Accessibility Modals-->
+        <div id="accessibility-modal" class="modal" tabindex="0">
+            <div class="modal-content">
+                <button class="close-modal" tabindex="0" aria-label="Close accesibillity statement">&times;</button>
+                <p tabindex="0">Johnson & Dunn Construction Consultation LLC is committed to ensuring digital accessibility for people with disabilities. 
+                    We are continually improve the user experience for everyone and applying the relevant accessibility standards.</p>
+
+
+                    <p tabindex="0"><b>Measures to support accessibility</b><br>
+                    Johnson & Dunn Construction Consultation LC takes the following measures to ensure accessibility of the Johnson & Dunn Construction Consultation LLC website:<br>
+                    - Include accessibility as part of our mission statement.<br>
+                    - Include people with disabilities in our design personas.<br>
+                    - Review Web Content Accessibility Guidelines and revise site content if needed to ensure conformance with above guidelines.</p>
+                    
+                    
+                    <p tabindex="0"><b>Conformance status</b><br>
+                    <a href="https://www.w3.org/TR/WCAG21/">The Web Content Accessibility Guidelines (WCAG)</a>  
+                    defines requirements for designers and developers to improve accessibility for people with disabilities. 
+                    It defines the three levels of conformance: level A, Level AA, and level AAA. 
+                    The Johnson & Dunn Construction Consultation LLC website is conformant with WCAG 2.1 level AA.</p>
+                    
+                        
+                    <p tabindex="0"><b>Feedback</b><br>
+                    We welcome your feedback on the accessibility of the Johnson & Dunn Construction Consultation LLC website. 
+                    Please let us know if you encounter accessibility barriers on our website:<br>
+                    - Phone<br>
+                    - Email<br>
+                    - Address<br>
+                    
+                    We will respond to such feedback as quickly as possible and speak with our site development team to discuss options and alterations.</p>
+                    
+                    
+                    <p tabindex="0"><b>Compatibility with browsers and assistive technologies</b><br>
+                    Johnson & Dunn Construction LLC website is designed to be compatible with the following assistive technologies:<br>
+                    - Microsoft Edge screen reading functions on Windows 10 <br>
+                    - Mobile screen reading technologies such TalkBack and VoiceOver<br>
+                    - Desktop screen readers such as NVDA, and Microsoft's Narrator<br>
+                    
+                    Johnson & Dunn Construction Consultation LLC website is not compatible with:<br>
+                    - Browsers of more than 4 previous major versions or mobile operating systems older than 5 years</p>
+                    
+                    
+                    <p tabindex="0"><b>Technical Specifications</b><br>
+                    Accessibility of Johnson & Dunn Construction Consultation LLC website relies on the following technologies, and features
+                    to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:<br>
+                    - Semantic HTML<br>
+                    - Adaptive/responsive page design
+                    - Appropriate usage of alternative text
+                    - JavaScript in with Accessible Rich Internet Applications roles and attributes<br>
+                    - Acceptable contrast ratios<br>
+                    
+                    These technologies are relied upon for conformance with the accessibility standards used.</p>
+                    
+                    
+                    <p tabindex="0"><b>Limitations and alternatives</b><br>
+                    Despite our best efforts to ensure accessibility of the Johnson & Dunn Construction LLC website, there may be some limitations. 
+                    Below is a description of our known limitations and potential solutions. 
+                    Please contact us via our information provided above under "Feedback" if you observe an issue not listed below.</p>
+                    
+                    <p tabindex="0"><b>Known limitations for Johnson & Dunn Construction Consultation LLC website:</b><br>
+                    1. <b>Comments from users:</b> Unfortunately information that is provided to us via the "Contact Us" form on our site may not have text to speech capabilities depending on the information input. 
+                    For those experiencing difficulties with this but that still wish to contact us, our contact information is provided.</p>
+                    
+                    <p tabindex="0"><b>Assessment approach</b><br>
+                    Johnson & Dunn Construction LLC assessed the accessibility of our website by the following approach:<br>
+                    - Informed our site development team of our need for accessibility inclusions and ensured that they were met along the way as the site was developed.</p>
+                    
+                    <p tabindex="0"><b>Formal Complaints</b><br>
+                    We aim to respond to accessibility feedback as quickly as possible, however please keep in mind that we must reach out to our site development team in order to address possible solutions to issues you encounter. 
+                    We aim to keep you in the communications as often as possible so that you do not feel that your issues are being neglected. 
+                    You are entitled to escalate a complaint to the national authority, should you be dissatisfied with our response to you.<button class="sr-close-modal" tabindex="0" aria-label="Close accesibillity statement"></button></p>
+            </div>
+        </div>
+        <div id="privacy-modal" class="modal" tabindex="0">
+            <div class="modal-content">
+                <button class="close-modal" tabindex="0" aria-label="Close privacy policy">&times;</button>
+                <p tabindex="0"><b>Johnson & Dunn Construction LLC Privacy Policy</b><br>
+                    This privacy policy will help you understand how Johnson & Dunn Construction LLC uses and protects the data you provide to use when you visit and use our site.<br>
+                    We reserve the right to change this policy at any given time, of which you will be promptly updated. If you want to make sure that you are up to date with the latest changes, we advise you to frequently visit this page. </p>
+
+                <p tabindex="0"><b>What User Data we Collect</b><br>
+                    When you visit this website, we may collect the following data:<br>
+                    - Your IP Address.<br>
+                    - Any contact information provided to us via the Contact Us form. </p>
+
+                <p tabindex="0"><b>Why we Collect your Data</b><br>
+                    We are collecting your data for the following reasons:<br>
+                    - We collect your IP address to serve you the website and associated files.
+                    - We collect your email and any information shared via the contact us so that we can promply reach back out to your inquiries.</p>
+                
+                <p tabindex="0"><b>Safeguarding and Securing the Data</b><br>
+                    Johnson & Dunn Construction LLC is committed to securing your data and keeping it confidential. 
+                    Johnson & Dunn Construction LLC has done all in its power to prevent data theft, unauthorized access, and disclosure by implementing the latest technologies and software to protect all information we collect.</p>
+                
+                <p tabindex="0"><b>Restricting the Collection of your Personal Information Policy</b><br>
+                    At some point, you might wish to restrict thee use and collection of your personal data. You can achieve this by doing the following:<br>
+                    - When you are filling out our contact form on the website, you can choose to omit information by putting in placeholder text in the required fields.
+                    However, omission of information may restrict our ability to reach back to you regarding any inquiries submitted through the form.<br>
+                    - If you have already agreed to share your information with us, feel free to contact us via email and wee will be more than happy to change this for you.<br>
+                    <u>Johnson & Dunn Construction LLC will not lease, sell or distribute your personal information to any third parties.</u>
+                    Your personal information will be used when we need to contact you for any of your inquiries or if we wish to contact you for a promotional material upon agreement to this privacy policy.<button class="sr-close-modal" tabindex="0" aria-label="Close accesibillity statement"></button></p> 
+            </div>
         </div>
     </footer>
 </body>

@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Initialize Nav Bar Animation
+    
     initNavAnimation();
-    // Initialize Hamburger Nav bar
+    
     initHamburgerNav();
-    // Initialize Service Carousel
+    
     initServiceCarousel();
+    
+    initObfu();
+
+    initModals();
 });
 
 // Navigation Bar home fade in animation
@@ -51,7 +55,7 @@ function initNavAnimation() {
     });
     navObserver.observe(bottomSentinel);
 }
-//Hamburger Navbar
+// Hamburger Navbar
 function initHamburgerNav() {
     const menuIcon = document.querySelector(".icon");
     const menuLinks = document.getElementById("myLinks");
@@ -267,4 +271,72 @@ function initServiceCarousel() {
     //Event listeners for buttons
     prevButton.addEventListener('click', moveLeft);
     nextButton.addEventListener('click', moveRight);
+}
+
+function initObfu() {
+    let e = String.fromCharCode(106,111,104,110,115,111,110,46,100,117,110,110,108,108,99,64,103,109,97,105,108,46,99,111,109);
+    document.getElementById('eml').innerText = e;   
+}
+function initModals() {
+    let accessibilityModal = document.getElementById('accessibility-modal');
+    let privacyModal = document.getElementById('privacy-modal');
+    let openAccess = document.getElementById('accessibility');
+    let openPrivacy = document.getElementById('privacy');
+    let formPrivacyIcon = document.getElementById('form-privacy-icon');
+    let closeAccess = document.getElementsByClassName('close-modal')[0];
+    let srCloseAccess = document.getElementsByClassName('sr-close-modal')[0];
+    let closePrivacy = document.getElementsByClassName('close-modal')[1];
+    let srClosePrivacy = document.getElementsByClassName('sr-close-modal')[1];
+    let iconFocus;
+    
+    function openPrivacyModal() {
+        privacyModal.style.display = 'block';
+        privacyModal.focus();
+    }
+    function openAccessibilityModal() {
+        accessibilityModal.style.display = 'block'
+        accessibilityModal.focus();
+    }
+    function closeModals() {
+        if (iconFocus === true) {
+            privacyModal.style.display = 'none';
+            formPrivacyIcon.focus();
+        } else {
+            privacyModal.style.display = 'none';
+            openPrivacy.focus();
+        }
+        accessibilityModal.style.display = 'none';
+    }
+    formPrivacyIcon.onclick = function() {
+        iconFocus = true;
+        openPrivacyModal();
+    }
+    openAccess.onclick = function() {
+        openAccessibilityModal();
+    }
+    openPrivacy.onclick = function() {
+        iconFocus = false;
+        openPrivacyModal();
+    }
+    closeAccess.onclick = function() {
+        closeModals();
+        openAccess.focus();
+    }
+    srCloseAccess.onclick = function() {
+        closeModals();
+        openAccess.focus();
+    }
+    closePrivacy.onclick = function () {
+        closeModals();
+    }
+    srClosePrivacy.onclick = function () {
+        closeModals();
+    }
+    
+    window.onclick = function(event) {
+        if (event.target === accessibilityModal) {
+            accessibilityModal.style.display = 'none';
+        }
+    }
+
 }
