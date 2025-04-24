@@ -334,8 +334,8 @@ function initModals() {
     }
     
     window.onclick = function(event) {
-        if (event.target === accessibilityModal) {
-            accessibilityModal.style.display = 'none';
+        if (event.target === accessibilityModal || event.target === privacyModal) {
+            closeModals();
         }
     }
 

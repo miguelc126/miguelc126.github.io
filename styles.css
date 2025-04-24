@@ -750,7 +750,7 @@ input[type="checkbox"]:checked::after {
     font-size: 0.9rem;
 }
 
-/* Privacy Policy & Accesibility modals */
+/* Privacy Policy & Accessibility modals */
 
 #privacy,
 #accessibility {
@@ -761,17 +761,19 @@ input[type="checkbox"]:checked::after {
 }
 
 #privacy:focus,
-#privacy:hover,
-#accessibility:focus,
-#accessibility:hover {
+#accessibility:focus {
     color: color-mix(in srgb, white 85%, black);
     text-decoration: underline;
     border-radius: 2px;
-    outline: none; /* Remove native outline */
+    outline: none;
     box-shadow:
-        0 0 0 2px black,     /* Inner border */
-        0 0 0 3px white;     /* Outer glow */
-    border-radius: 2px; /* optional, match your other styles */
+        0 0 0 2px black,
+        0 0 0 3px white;
+    border-radius: 2px; 
+}
+#privacy:hover,
+#accessibility:hover {
+    color: color-mix(in srgb, white 85%, black);
 }
 
 /* The Modal (background) */
